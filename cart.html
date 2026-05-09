@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script>
+    (function() {
+      const lang = localStorage.getItem("mslr_lang") || "en";
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      const observer = new MutationObserver(() => {
+        if (document.body) {
+          document.body.classList.add(lang === "ar" ? "rtl" : "ltr");
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.documentElement, { childList: true });
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart — MSLR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/loader.css">
+  <!-- Preload Arabic Font for Performance -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&display=swap" media="print" onload="this.media='all'">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { lime: { 400: '#c8f400', 300: '#d6f733', 500: '#a8cc00' } },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#00312D] text-[#f5f5f5] font-sans" data-page="cart">
+
+<!-- LOADER -->
+<div id="loader-wrapper">
+  <div class="loader-content">
+    <svg viewBox="0 0 2374 2374" preserveAspectRatio="xMidYMid meet" class="loader-logo-svg">
+      <path class="loader-logo-path" transform="translate(0,0)" d="M 1163.34 217.862 C 1165.92 218.182 1164.78 217.704 1166.79 219.238 C 1167.31 238.432 1166.05 259.183 1166.32 278.839 L 1168.34 505.767 C 1168.48 530.489 1167.8 555.291 1168.2 579.977 C 1077.81 627.908 982.868 675.364 891.517 721.971 C 862.03 736.961 832.626 752.113 803.307 767.427 C 797.176 770.61 772.782 781.733 769.913 785.67 C 775.415 789.882 799.309 799.967 807.642 803.927 L 917.133 855.542 C 1023.96 905.338 1130.15 956.481 1235.68 1008.96 L 1330.64 1055.54 C 1348.05 1064.11 1372.35 1075.56 1388.88 1085.24 C 1388.2 1051.5 1388.77 1015.97 1388.72 982.036 L 1388.43 741.953 L 1657.01 605.24 L 1733.65 566.208 C 1745.59 560.145 1765.5 550.789 1775.84 544.078 C 1774.88 583.209 1775.37 623.732 1775.37 662.984 L 1775.19 890.843 C 1688.05 937.606 1590.38 984.108 1501.46 1028.52 C 1475.48 1041.4 1449.56 1054.41 1423.7 1067.56 C 1416.42 1071.24 1398.12 1079.57 1392.62 1083.04 L 1392.84 1084.93 C 1399.82 1092.58 1554.27 1167.99 1580.56 1181.25 C 1645.57 1214.04 1711.29 1246.25 1775.2 1281.11 L 1775.08 1944.26 C 1684.7 1991.34 1590.87 2035.1 1500.06 2081.63 C 1464.9 2099.65 1424.71 2117.57 1390.62 2136.72 C 1387.77 2137.42 1389.2 2137.31 1386.33 2137.1 C 1381.11 2127.08 1388.63 1835.61 1387.8 1796.13 L 1641.86 1669.06 L 1721.99 1628.86 C 1731.83 1623.93 1755.07 1613.01 1763.53 1607.6 C 1760 1601.79 1643.59 1544.5 1630.16 1537.7 L 1290.77 1366.01 L 1201.79 1320.91 C 1191.91 1315.87 1165.4 1301.59 1156.38 1298.8 L 1155.02 1300.06 C 1153.21 1331.74 1154.56 1377.52 1154.58 1410.37 L 1154.63 1622.85 C 1144.75 1629.18 1128.37 1636.61 1117.39 1642.08 L 1050.2 1675.61 L 860.963 1770.48 C 826.609 1787.74 783.472 1808.11 750.896 1826.84 C 748.929 1807.04 750.57 1757.1 750.684 1736.08 L 751.237 1559.34 C 751.251 1548.09 749.41 1485.78 750.934 1479.9 C 752.784 1472.76 1092.65 1317.42 1128.7 1297.21 C 1131.88 1295.44 1135.56 1293.56 1136.99 1290.03 C 1130.49 1281.3 784.926 1118.71 750.992 1099.35 L 749.777 1098.65 C 750.825 1067.02 750.269 1033.19 750.277 1001.42 L 750.293 829.856 C 750.318 813.833 751.547 799.562 751.771 784.2 L 753.622 628.733 L 753.717 504.924 C 753.726 483.82 752.903 455.901 754.464 435.728 C 760.804 427.877 1116.78 242.555 1163.34 217.862 z" />
+    </svg>
+  </div>
+</div>
+
+
+<!-- NAVBAR -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-16 flex items-center justify-between gap-8">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="images/logopage.svg" alt="MSLR Logo" class="logo-img" />
+    </a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html" class="nav-link" data-i18n="home">Home</a>
+      <a href="shop.html" class="nav-link" data-i18n="shop">Shop</a>
+      <a href="index.html#collections" class="nav-link" data-i18n="collections">Collections</a>
+      <a href="index.html#about" class="nav-link" data-i18n="about">About</a>
+      <a href="index.html#contact" class="nav-link" data-i18n="contact">Contact</a>
+    </div>
+    <div class="flex items-center gap-1">
+      <button class="btn-ghost p-2.5">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="cart.html" class="btn-ghost p-2.5 relative text-lime-400">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+      <!-- Currency Switcher -->
+      <div class="curr-switcher ml-1">
+        <button class="curr-btn" data-curr="DH" aria-label="Switch to DH">DH</button>
+        <button class="curr-btn" data-curr="USD" aria-label="Switch to USD">$</button>
+        <div class="curr-indicator"></div>
+      </div>
+      <!-- Language Switcher -->
+      <div class="lang-switcher ml-1">
+        <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+        <button class="lang-btn" data-lang="ar" aria-label="Switch to Arabic">AR</button>
+        <div class="lang-indicator"></div>
+      </div>
+      <!-- Mobile Settings Toggle -->
+      <div id="settings-dropdown-wrapper" class="ml-1">
+        <button class="mobile-settings-toggle btn-ghost p-2.5" id="mobile-settings-toggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <div class="mobile-settings-dropdown" id="mobile-settings-dropdown">
+          <div class="dropdown-section">
+            <span class="dropdown-label" data-i18n="size">Language</span>
+            <div class="dropdown-grid">
+              <button class="dropdown-item lang-btn" data-lang="en">EN</button>
+              <button class="dropdown-item lang-btn" data-lang="ar">AR</button>
+            </div>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-label" data-i18n="price">Currency</span>
+            <div class="dropdown-grid">
+              <button class="dropdown-item curr-btn" data-curr="DH">DH</button>
+              <button class="dropdown-item curr-btn" data-curr="USD">$</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button id="mobile-menu-toggle" class="md:hidden btn-ghost p-2.5 ml-1">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden flex-col bg-[#0a0a0a]/98 backdrop-blur-xl border-t border-white/5 px-5 py-6 gap-4">
+    <a href="index.html" class="nav-link text-base py-1 block" data-i18n="home">Home</a>
+    <a href="shop.html" class="nav-link text-base py-1 block" data-i18n="shop">Shop</a>
+    <a href="index.html#contact" class="nav-link text-base py-1 block" data-i18n="contact">Contact</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="pt-16 bg-[#0d0d0d] border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 py-10">
+    <p class="section-tag mb-2" data-i18n="co_header_tag">Review Your Order</p>
+    <h1 class="text-[clamp(2rem,4vw,3rem)] font-black tracking-tight" data-i18n="cart_title">Your Cart</h1>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-5 lg:px-8 py-10 lg:py-16">
+
+  <!-- EMPTY STATE -->
+  <div id="cart-empty" class="flex flex-col items-center justify-center py-24 text-center" style="display:none!important">
+    <div class="w-20 h-20 rounded-full bg-[#043F37] flex items-center justify-center mb-6">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </div>
+    <h2 class="text-2xl font-bold mb-3" data-i18n="cart_empty">Your cart is empty</h2>
+    <p class="text-gray-400 mb-8" data-i18n="cart_empty_sub">Looks like you haven't added anything yet.</p>
+    <a href="shop.html" class="btn-primary" data-i18n="cart_continue">Start Shopping</a>
+  </div>
+
+  <!-- CART CONTENT -->
+  <div id="cart-summary" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- Items List -->
+    <div class="lg:col-span-2">
+      <div id="cart-items" class="flex flex-col gap-4"></div>
+      <div class="mt-8">
+        <a href="shop.html" class="flex items-center gap-2 text-lime-400 text-sm font-semibold hover:gap-3 transition-all">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Continue Shopping
+        </a>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="lg:col-span-1">
+      <div class="bg-[#043F37] rounded-2xl p-6 border border-white/5 sticky top-24">
+        <h3 class="text-lg font-bold mb-6">Order Summary</h3>
+
+        <!-- Delivery Option -->
+        <div class="mb-6">
+          <p class="form-label mb-3">Delivery Method</p>
+          <div class="flex flex-col gap-2">
+            <label class="radio-card">
+              <input type="radio" name="cart-delivery" value="standard" checked onchange="updateCartTotals()">
+              <div class="flex-1">
+                <p class="text-sm font-medium text-white">Standard Delivery</p>
+                <p class="text-xs text-gray-400 mt-0.5">3–5 business days</p>
+              </div>
+              <span class="text-lime-400 text-sm font-bold">30 DH</span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="cart-delivery" value="fast" onchange="updateCartTotals()">
+              <div class="flex-1">
+                <p class="text-sm font-medium text-white">Fast Delivery</p>
+                <p class="text-xs text-gray-400 mt-0.5">1–2 business days</p>
+              </div>
+              <span class="text-lime-400 text-sm font-bold">45 DH</span>
+            </label>
+          </div>
+        </div>
+
+        <hr class="section-divider mb-4">
+
+        <div class="flex flex-col gap-3 mb-4">
+          <div class="flex justify-between text-sm">
+            <span class="text-gray-400">Subtotal</span>
+            <span id="cart-subtotal" class="text-white font-medium" data-price="0">0 DH</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-gray-400">Delivery</span>
+            <span id="cart-delivery-fee" class="text-white font-medium" data-price="30">30 DH</span>
+          </div>
+        </div>
+
+        <hr class="section-divider mb-4">
+
+        <div class="flex justify-between items-center mb-6">
+          <span class="font-bold text-base">Total</span>
+          <span id="cart-total" class="text-lime-400 font-black text-xl" data-price="0">0 DH</span>
+        </div>
+
+        <a href="checkout.html" class="btn-primary w-full justify-center text-center block">
+          Proceed to Checkout
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+
+        <button onclick="sendCartWhatsApp()" class="mt-3 w-full flex items-center justify-center gap-2 py-3 rounded-full border border-[#25d366]/30 text-[#25d366] text-sm font-semibold hover:bg-[#25d366]/10 transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order via WhatsApp
+        </button>
+
+        <!-- Trust -->
+        <div class="mt-6 flex items-center justify-center gap-2 text-xs text-gray-600">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Secure & encrypted checkout
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-[#080808] border-t border-white/5 pt-12 pb-8 px-5 lg:px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <img src="assets/logo/mslr-logo.png" alt="MSLR" class="h-6" onerror="this.outerHTML='<span class=&quot;text-lime-400 font-black text-xl tracking-widest&quot;>MSLR</span>'">
+    <p class="text-gray-600 text-xs">&copy; 2025 MSLR. All rights reserved.</p>
+    <div class="flex gap-4">
+      <a href="index.html" class="text-gray-500 hover:text-lime-400 text-sm transition-colors">Home</a>
+      <a href="shop.html" class="text-gray-500 hover:text-lime-400 text-sm transition-colors">Shop</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="js/loader.js"></script>
+
+<script src="js/products.js"></script>
+<script src="js/app.js"></script>
+<script>
+  function sendCartWhatsApp() {
+    const cart = getCart();
+    if (!cart.length) { showToast("Your cart is empty", "error"); return; }
+    const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+    const itemLines = cart.map(i => `• ${i.name} | Size: ${i.size} | Color: ${i.colorName} | Qty: ${i.quantity} | ${formatPrice(i.price*i.quantity)}`).join("\n");
+    const msg = `Hello MSLR! I want to order:\n\n${itemLines}\n\n*Subtotal:* ${formatPrice(subtotal)}\n\nPlease send me order details. Thank you!`;
+    window.open("https://wa.me/212691446200?text=" + encodeURIComponent(msg), "_blank");
+  }
+
+  // Show/hide empty state based on cart
+  document.addEventListener("DOMContentLoaded", () => {
+    const cart = getCart();
+    const emptyEl = document.getElementById("cart-empty");
+    const summaryEl = document.getElementById("cart-summary");
+    if (cart.length === 0) {
+      if (emptyEl) emptyEl.style.display = "flex";
+      if (summaryEl) summaryEl.style.display = "none";
+    }
+  });
+</script>
+</body>
+</html>
