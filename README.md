@@ -1,6 +1,6 @@
 # MSLR – Premium Streetwear E‑Commerce 
 
-![MSLR Banner](https://raw.githubusercontent.com/yourusername/MSLR/main/assets/banner.png)
+![Dashboard Preview](./images/webStoreIM.jpg)
 
 ##  Project Overview
 MSLR is a high‑end streetwear e‑commerce website designed to deliver a premium shopping experience. It supports bilingual (English/Arabic) interfaces, multiple currencies (DH, USD), and integrates modern animations with **Anime.js** for a dynamic, engaging UI.
