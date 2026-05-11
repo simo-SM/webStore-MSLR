@@ -481,6 +481,42 @@ select.form-input {
   padding-right: 2.5rem;
 }
 
+#filter-size,
+#sort-order {
+  background-color: #00312D;
+  color: #ffffff;
+  border: 1px solid rgba(200, 244, 0, 0.25);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#filter-size:focus,
+#sort-order:focus {
+  border-color: #c8f400;
+  box-shadow: 0 0 15px rgba(200, 244, 0, 0.1);
+  outline: none;
+}
+
+#filter-size option,
+#sort-order option {
+  background-color: #00312D;
+  color: #ffffff;
+  font-family: inherit;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#filter-size option:hover,
+#sort-order option:hover,
+#filter-size option:focus,
+#sort-order option:focus,
+#filter-size option:checked,
+#sort-order option:checked {
+  background-color: #c8f400 !important;
+  color: #000000 !important;
+}
+
 /* ── PRODUCT GALLERY ── */
 #pd-main-img {
   transition: opacity 0.25s ease;
@@ -999,6 +1035,39 @@ html[dir="rtl"] .hero-stats {
   }
   #video-modal-meta {
     padding: 1rem 1.1rem 0.5rem;
+  }
+}
+
+/* ── SHOP FILTERS RESPONSIVE ── */
+@media (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .shop-filters-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .shop-category-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.5rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .shop-controls-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 0.75rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .shop-controls-scroll input,
+  .shop-controls-scroll select {
+    flex: 0 0 auto;
   }
 }
 

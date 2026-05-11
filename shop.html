@@ -143,9 +143,9 @@
 <!-- FILTERS -->
 <div class="sticky top-16 z-40 bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-white/5">
   <div class="max-w-7xl mx-auto px-5 lg:px-8 py-4">
-    <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+    <div class="shop-filters-wrapper flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <!-- Category filters -->
-      <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
+      <div class="shop-category-scroll flex gap-2 overflow-x-auto scrollbar-hide pb-1">
         <button class="filter-btn active-cat flex-shrink-0" data-category="all" data-i18n="all">All</button>
         <button class="filter-btn flex-shrink-0" data-category="hoodies" data-i18n="cat_hoodies">Hoodies</button>
         <button class="filter-btn flex-shrink-0" data-category="t-shirts" data-i18n="cat_tshirts">T-Shirts</button>
@@ -153,7 +153,7 @@
         <button class="filter-btn flex-shrink-0" data-category="accessories" data-i18n="cat_acc">Accessories</button>
       </div>
       <!-- Right controls -->
-      <div class="flex gap-3 items-center flex-shrink-0">
+      <div class="shop-controls-scroll flex gap-3 items-center flex-shrink-0 scrollbar-hide">
         <input id="shop-search" type="text" placeholder="Search..." data-i18n-placeholder="search_placeholder" class="form-input py-2 text-sm w-48 lg:w-56">
         <select id="filter-size" class="form-input py-2 text-sm w-28">
           <option value="">All Sizes</option>
